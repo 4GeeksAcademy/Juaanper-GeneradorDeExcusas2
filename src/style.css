@@ -3,3 +3,8 @@
 body{
     background: white;
 }
+button{
+    background-color: aqua;
+    color: black;
+    border-radius: 10%;
+}
