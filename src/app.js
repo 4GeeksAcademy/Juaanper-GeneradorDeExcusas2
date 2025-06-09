@@ -1,27 +1,32 @@
 import "bootstrap";
 import "./style.css";
 
-
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
-      function generarExcusa (){
-      let sujeto= ["Mi Perro", "Mi Abuelita" , "El Mensajero" , "El Aguila" ];
-      let accion= ["Comio", "Orino", "Aplasto", "Rompio"];
-      let objeto= ["Mi tarea" , "Mi Movil" , "Mi Carro", "El Mueble"];
-      let momento=["Despues de Clases" , "Cuando estaba durmiendo" , "Mientras hacia ejercicio" , "Durante mi almuerzo" , "Mientras estaba orando"];
+// Generador de excusas
+window.onload = () => {
+  const subjects = ["Mi perro", "Mi abuelita", "El mensajero", "El águila"];
+  const actions = ["comió", "orinó", "aplastó", "rompió"];
+  const objects = ["mi tarea", "mi móvil", "mi carro", "el mueble"];
+  const times = [
+    "después de clases",
+    "cuando estaba durmiendo",
+    "mientras hacía ejercicio",
+    "durante mi almuerzo",
+    "mientras estaba orando"
+  ];
 
-      let personas = sujeto [Math.floor(Math.random()*sujeto.length)];
-      let reaccion = accion [Math.floor(Math.random()*accion.length)];
-      let instrumento = objeto [Math.floor(Math.random()*objeto.length)];
-      let cuando = momento [Math.floor(Math.random()*momento.length)];
+  const getRandomItem = array => array[Math.floor(Math.random() * array.length)];
 
-      let excusa = `${personas} ${reaccion} ${instrumento} ${cuando}`;
-
-      document.querySelector("#excuse").innerHTML = excusa
+  const generateExcuse = () => {
+    const excuse = `${getRandomItem(subjects)} ${getRandomItem(actions)} ${getRandomItem(objects)} ${getRandomItem(times)}.`;
+    const excuseElement = document.querySelector("#excuse");
+    if (excuseElement) {
+      excuseElement.textContent = excuse;
     }
-    generarExcusa()
-  console.log("Hello Rigo from the console!");
-}
+  };
+
+  generateExcuse();
+  console.log("Excusa generada automáticamente al cargar la página.");
+};
